@@ -30,6 +30,7 @@ class WolfSSLConan(ConanFile):
         "sessioncerts": [True, False],
         "sni": [True, False],
         "testcert": [True, False],
+        "psk": [True, False],
     }
     default_options = {
         "shared": False,
@@ -46,6 +47,7 @@ class WolfSSLConan(ConanFile):
         "sessioncerts": False,
         "sni": False,
         "testcert": False,
+        "psk": False,
     }
 
     _autotools = None
@@ -123,6 +125,7 @@ class WolfSSLConan(ConanFile):
             "--enable-sessioncerts={}".format(yes_no(self.options.sessioncerts)),
             "--enable-sni={}".format(yes_no(self.options.sni)),
             "--enable-testcert={}".format(yes_no(self.options.testcert)),
+            "--enable-psk={}".format(yes_no(self.options.psk)),
             "--enable-shared={}".format(yes_no(self.options.shared)),
             "--enable-static={}".format(yes_no(not self.options.shared)),
         ]
